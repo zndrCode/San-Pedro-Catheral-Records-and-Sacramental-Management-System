@@ -1,0 +1,175 @@
+:root {
+  --bg-overlay: rgba(0, 0, 0, 0.45);
+  --card-radius: 12px;
+  --primary: #158CFF;
+  --muted: #9aa4af;
+  --input-border: #5d5d5d;
+  --card-width: 460px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+body {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('../assets/sanpedro_bg.webp');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(0.95) saturate(0.9);
+  z-index: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: 1;
+}
+
+/* Card (same class name as login) */
+.login-card {
+  width: var(--card-width);
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--card-radius);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.42);
+  z-index: 2;
+}
+
+/* Logo */
+.logo-wrap {
+  text-align: center;
+}
+
+.logo {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 6px solid rgba(0, 0, 0, 0.04);
+  object-fit: cover;
+}
+
+/* Text */
+h1 {
+  text-align: center;
+  margin: 8px 0 4px;
+  font-size: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.login-as-label,
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+/* Role buttons */
+.segmented {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.6px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.role-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Form */
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: #5d5d5d;
+}
+
+.form-msg {
+  min-height: 18px;
+  font-size: 13px;
+  color: #b71c1c;
+  margin-bottom: 8px;
+}
+
+/* Button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: #596169;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.footer a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .login-card {
+    width: 94%;
+    padding: 18px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}

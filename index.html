@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>San Pedro Cathedral Login</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background layers -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="login-card" role="main" aria-labelledby="title">
+    <div class="logo-wrap">
+      <img src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo" class="logo">
+    </div>
+
+    <h1 id="title">SAN PEDRO CATHEDRAL</h1>
+    <div class="subtitle">Record &amp; Sacramental System</div>
+
+    <div class="login-as-label">Login As:</div>
+
+    <div class="segmented" role="tablist" aria-label="Select role">
+      <button type="button" class="role-btn active" data-role="member" aria-selected="true">
+        Member
+      </button>
+      <button type="button" class="role-btn" data-role="admin" aria-selected="false">
+        Admin
+      </button>
+    </div>
+
+    <form id="loginForm">
+      <input class="input" type="email" id="email" name="email" placeholder="Email address" required>
+      <input class="input" type="password" id="password" name="password" placeholder="Password" required>
+
+      <a class="forgot" href="#">Forgot Password?</a>
+
+      <button class="btn-primary" type="submit">LOGIN</button>
+    </form>
+
+    <div class="footer">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

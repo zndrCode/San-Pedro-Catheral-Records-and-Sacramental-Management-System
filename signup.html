@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>San Pedro Cathedral Sign Up</title>
+
+  <!-- Google Font (same as login) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
+  <!-- Background layers -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="login-card" role="main" aria-labelledby="signup-title">
+    <div class="logo-wrap">
+      <img src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo" class="logo">
+    </div>
+
+    <h1 id="signup-title">SAN PEDRO CATHEDRAL</h1>
+    <div class="subtitle">Record &amp; Sacramental System</div>
+
+    <div class="login-as-label">Sign Up As:</div>
+
+    <div class="segmented" role="tablist" aria-label="Select role">
+      <button type="button" class="role-btn active" data-role="member" aria-selected="true">
+        Member
+      </button>
+      <button type="button" class="role-btn" data-role="admin" aria-selected="false">
+        Admin
+      </button>
+    </div>
+
+    <form id="signupForm" novalidate>
+      <div class="row">
+        <input class="input" type="text" id="surname" placeholder="Surname" required>
+        <input class="input" type="text" id="firstname" placeholder="First Name" required>
+      </div>
+
+      <input class="input" type="email" id="email" placeholder="Email address" required>
+
+      <div class="label">Create Password</div>
+      <input class="input" type="password" id="password" placeholder="Password" required>
+      <input class="input" type="password" id="confirm_password" placeholder="Confirm Password" required>
+
+      <div class="form-msg" id="formMsg" aria-live="polite"></div>
+
+      <button class="btn-primary" type="submit">SIGN UP</button>
+    </form>
+
+    <div class="footer">
+      Already have an account? <a href="index.html">Login</a>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="js/signup.js"></script>
+</body>
+</html>
