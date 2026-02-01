@@ -27,22 +27,20 @@
     <h1 id="signup-title">SAN PEDRO CATHEDRAL</h1>
     <div class="subtitle">Record &amp; Sacramental System</div>
 
-    <div class="login-as-label">Sign Up As:</div>
-
-    <div class="segmented" role="tablist" aria-label="Select role">
-      <button type="button" class="role-btn active" data-role="member" aria-selected="true">
-        Member
-      </button>
-      <button type="button" class="role-btn" data-role="admin" aria-selected="false">
-        Admin
-      </button>
-    </div>
+    <div class="label">Fill up:</div>
 
     <form id="signupForm" novalidate>
       <div class="row">
-        <input class="input" type="text" id="surname" placeholder="Surname" required>
-        <input class="input" type="text" id="firstname" placeholder="First Name" required>
+        <input class="input" type="text" id="surname" placeholder="Surname" required aria-label="Surname">
+        <input class="input" type="text" id="firstname" placeholder="First Name" required aria-label="First name">
       </div>
+
+      <div class="row">
+        <input class="input" type="text" id="middlename" placeholder="Middle-name" required aria-label="Middle name">
+        <input class="input" type="date" id="birthdate" placeholder="Birthdate" required aria-label="Birthdate">
+      </div>
+
+      <input class="input" type="tel" id="contact" placeholder="Contact Number" required aria-label="Contact number">
 
       <input class="input" type="email" id="email" placeholder="Email address" required>
 

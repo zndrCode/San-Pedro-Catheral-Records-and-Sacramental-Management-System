@@ -87,28 +87,7 @@ h1 {
   color: #222;
 }
 
-/* Role buttons */
-.segmented {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 14px;
-}
 
-.role-btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1.6px solid var(--primary);
-  background: transparent;
-  color: var(--primary);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.role-btn.active {
-  background: var(--primary);
-  color: #fff;
-}
 
 /* Form */
 .row {

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>San Pedro Cathedral Admin Dashboard</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-title">San Pedro Cathedral Parish Admin Panel</div>
+
+      <div class="profile" id="profileBtn" tabindex="0" aria-haspopup="true" aria-expanded="false">
+        <span class="profile-name">Admin</span>
+
+        <div class="profile-menu" id="profileMenu" role="menu" hidden>
+          <button class="menu-item" id="logoutBtn" role="menuitem">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <img class="logo" src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo">
+        <h2 class="site-name">SAN PEDRO CATHEDRAL</h2>
+        <p class="muted">Record &amp; Sacramental System</p>
+      </div>
+
+      <nav class="main-menu">
+        <ul>
+
+          <li>
+            <a class="menu-link active" href="#">
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Members</span>
+              <span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="#">Members Details</a></li>
+              <li><a href="#">Add / Remove Members</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Announcements &amp; Events</span>
+              <span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="#">Add / Remove Events</a></li>
+              <li><a href="#">Add / Remove Announcements</a></li>
+              <li><a href="#">Event Details</a></li>
+              <li><a href="#">Announcement Details</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Services</span>
+              <span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="#">Add / Remove Services</a></li>
+              <li><a href="#">Service Details</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" role="main">
+      <section class="welcome">
+        <div>
+          <h1>Welcome, Admin</h1>
+          <div id="currentDate" class="date">Loading date...</div>
+        </div>
+      </section>
+
+      <h3 class="section-title">Dashboard</h3>
+
+      <section class="cards">
+
+        <!-- Total Members Card -->
+        <div class="card card-blue">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-header-left">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                  </svg>
+                </div>
+                <div class="card-title">Total Members</div>
+              </div>
+              <div class="card-value">0</div>
+            </div>
+            <div class="card-footer">
+              <button class="btn-mini">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Events Card -->
+        <div class="card card-green">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-header-left">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+                  </svg>
+                </div>
+                <div class="card-title">Upcoming Announcements &amp; Events</div>
+              </div>
+              <div class="card-value">0</div>
+            </div>
+            <div class="card-footer">
+              <button class="btn-mini">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services Card -->
+        <div class="card card-orange">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-header-left">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div class="card-title">Services</div>
+              </div>
+              <div class="card-value">0</div>
+            </div>
+            <div class="card-footer">
+              <button class="btn-mini">View Details</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- JS -->
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

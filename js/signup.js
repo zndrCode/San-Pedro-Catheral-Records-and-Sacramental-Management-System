@@ -1,21 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const roleButtons = document.querySelectorAll('.role-btn');
   const form = document.getElementById('signupForm');
   const msg = document.getElementById('formMsg');
-
-  // Role toggle
-  roleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      roleButtons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
-      });
-
-      button.classList.add('active');
-      button.setAttribute('aria-selected', 'true');
-    });
-  });
 
   // Form submit
   form.addEventListener('submit', (e) => {
@@ -25,13 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const surname = document.getElementById('surname').value.trim();
     const firstname = document.getElementById('firstname').value.trim();
+    const middlename = document.getElementById('middlename').value.trim();
+    const birthdate = document.getElementById('birthdate').value;
+    const contact = document.getElementById('contact').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     const confirm = document.getElementById('confirm_password').value;
-    const role = document.querySelector('.role-btn.active').dataset.role;
 
     if (!surname || !firstname) {
       msg.textContent = 'Please enter your full name.';
+      return;
+    }
+
+    if (!middlename) {
+      msg.textContent = 'Please enter your middle name.';
+      return;
+    }
+
+    if (!birthdate) {
+      msg.textContent = 'Please enter your birthdate.';
+      return;
+    }
+
+    if (!/^\+?\d{7,15}$/.test(contact)) {
+      msg.textContent = 'Enter a valid contact number.';
       return;
     }
 
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Demo success
-    console.log('Signing up:', { role, surname, firstname, email });
+    console.log('Signing up:', { surname, firstname, middlename, birthdate, contact, email });
 
     msg.style.color = '#0b845e';
     msg.textContent = 'Account created successfully. Redirecting...';
