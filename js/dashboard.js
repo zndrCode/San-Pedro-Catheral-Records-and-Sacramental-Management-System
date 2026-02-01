@@ -17,6 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileBtn = document.getElementById('profileBtn');
   const profileMenu = document.getElementById('profileMenu');
 
+  /* Notification Icon Click Handler */
+  const notificationBtn = document.getElementById('notificationBtn');
+  if (notificationBtn) {
+    notificationBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Placeholder for notification panel
+      alert('Notifications:\n\n• 3 new member registrations pending\n• Upcoming event: Sunday Mass\n• 2 service requests awaiting approval');
+      
+      // In a real application, you would open a notification panel/modal here
+      // Example: openNotificationPanel();
+    });
+
+    // Add keyboard support
+    notificationBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        notificationBtn.click();
+      }
+    });
+  }
+
   if (profileBtn && profileMenu) {
     const toggleProfileMenu = (e) => {
       e.stopPropagation();
@@ -120,6 +141,44 @@ document.addEventListener('DOMContentLoaded', () => {
       // window.location.href = `details.html?section=${cardTitle.toLowerCase().replace(/\s+/g, '-')}`;
     });
   });
+
+  /* Quick Actions Button Handlers */
+  // Approve Requests Button
+  const approveRequestsBtn = document.getElementById('approveRequestsBtn');
+  if (approveRequestsBtn) {
+    approveRequestsBtn.addEventListener('click', () => {
+      alert('Redirecting to Sacramental Requests approval page...');
+      // In production: window.location.href = 'sacramental-requests.html';
+    });
+  }
+
+  // Add Member Button
+  const addMemberBtn = document.getElementById('addMemberBtn');
+  if (addMemberBtn) {
+    addMemberBtn.addEventListener('click', () => {
+      alert('Opening Add New Member form...');
+      // In production: window.location.href = 'add-member.html';
+    });
+  }
+
+  // Create Event Button
+  const createEventBtn = document.getElementById('createEventBtn');
+  if (createEventBtn) {
+    createEventBtn.addEventListener('click', () => {
+      alert('Opening Create Event/Announcement form...');
+      // In production: window.location.href = 'create-event.html';
+    });
+  }
+
+  // Generate Report Button
+  const generateReportBtn = document.getElementById('generateReportBtn');
+  if (generateReportBtn) {
+    generateReportBtn.addEventListener('click', () => {
+      alert('Opening Report Generation tool...');
+      // In production: window.location.href = 'reports.html';
+    });
+  }
+
 
   /* Smooth Scrolling for Internal Links */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
