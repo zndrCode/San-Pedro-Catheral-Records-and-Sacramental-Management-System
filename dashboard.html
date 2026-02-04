@@ -55,46 +55,81 @@
       <nav class="main-menu">
         <ul>
 
+          <!-- Dashboard -->
           <li>
-            <a class="menu-link active" href="#">
+            <a class="menu-link active" href="dashboard.html">
               <span>Dashboard</span>
             </a>
           </li>
 
+          <!-- Members Management -->
           <li class="has-children">
             <button class="menu-toggle" aria-expanded="false">
               <span>Members Management</span>
               <span class="chev">▾</span>
             </button>
             <ul class="submenu" hidden>
-              <li><a href="#">Members List</a></li>
-              <li><a href="#">Add Member</a></li>
-              <li><a href="#">Member Profiles</a></li>
+              <li><a href="members-list.html">Members List</a></li>
+              <li><a href="member-profiles.html">Member Profiles</a></li>
+              <li><a href="pending-registrations.html">Pending Registrations</a></li>
             </ul>
           </li>
 
+          <!-- Sacramental Requests (NEW - CRITICAL!) -->
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Sacramental Requests</span>
+              <span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="pending-requests.html">Pending Requests</a></li>
+              <li><a href="approved-requests.html">Approved Requests</a></li>
+              <li><a href="rejected-requests.html">Rejected Requests</a></li>
+              <li><a href="request-history.html">Request History</a></li>
+            </ul>
+          </li>
+
+          <!-- Events & Announcements -->
           <li class="has-children">
             <button class="menu-toggle" aria-expanded="false">
               <span>Events &amp; Announcements</span>
               <span class="chev">▾</span>
             </button>
             <ul class="submenu" hidden>
-              <li><a href="#">Events Calendar</a></li>
-              <li><a href="#">Create Event</a></li>
-              <li><a href="#">Announcements List</a></li>
-              <li><a href="#">Create Announcement</a></li>
+              <li><a href="events-calendar.html">Events Calendar</a></li>
+              <li><a href="announcements-list.html">Announcements List</a></li>
             </ul>
           </li>
 
+          <!-- Reports (NEW) -->
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Reports</span>
+              <span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="generate-report.html">Generate New Report</a></li>
+              <li><a href="report-history.html">Report History</a></li>
+            </ul>
+          </li>
+
+          <!-- Activity Log (NEW) -->
+          <li>
+            <a class="menu-link" href="activity-log.html">
+              <span>Activity Log</span>
+            </a>
+          </li>
+
+          <!-- Settings -->
           <li class="has-children">
             <button class="menu-toggle" aria-expanded="false">
               <span>Settings</span>
               <span class="chev">▾</span>
             </button>
             <ul class="submenu" hidden>
-              <li><a href="#">Parish Information</a></li>
-              <li><a href="#">User Accounts</a></li>
-              <li><a href="#">System Settings</a></li>
+              <li><a href="parish-information.html">Parish Information</a></li>
+              <li><a href="user-accounts.html">User Accounts</a></li>
+              <li><a href="system-settings.html">System Settings</a></li>
             </ul>
           </li>
 
@@ -182,8 +217,14 @@
                 </div>
                 <div class="card-title">Total Members</div>
               </div>
-              <div class="card-value">0</div>
+              <div class="card-value">210</div>
             </div>
+            
+            <!-- Chart Section -->
+            <div class="card-chart">
+              <canvas id="membersChart"></canvas>
+            </div>
+            
             <div class="card-footer">
               <button class="btn-mini">View Details</button>
             </div>
@@ -202,8 +243,14 @@
                 </div>
                 <div class="card-title">Pending Sacramental Requests</div>
               </div>
-              <div class="card-value">0</div>
+              <div class="card-value">50</div>
             </div>
+            
+            <!-- Chart Section -->
+            <div class="card-chart">
+              <canvas id="requestsChart"></canvas>
+            </div>
+            
             <div class="card-footer">
               <button class="btn-mini">View Details</button>
             </div>
@@ -222,8 +269,14 @@
                 </div>
                 <div class="card-title">Active Announcements</div>
               </div>
-              <div class="card-value">0</div>
+              <div class="card-value">33</div>
             </div>
+            
+            <!-- Chart Section -->
+            <div class="card-chart">
+              <canvas id="announcementsChart"></canvas>
+            </div>
+            
             <div class="card-footer">
               <button class="btn-mini">View Details</button>
             </div>
@@ -231,10 +284,48 @@
         </div>
 
       </section>
+
+      <!-- NEW: Recent Activity Section -->
+      <section class="recent-activity-section">
+        <h3 class="section-title">Recent Activity</h3>
+        <div class="activity-card">
+          <div class="activity-list" id="activityList">
+            <!-- Activity items will be populated by JavaScript -->
+          </div>
+          <div class="activity-footer">
+            <a href="activity-log.html" class="view-all-link">View All Activities →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW: Pending Registrations Section -->
+      <section class="pending-section">
+        <h3 class="section-title">Pending Member Registrations</h3>
+        <div class="table-card">
+          <table class="data-table" id="pendingTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Registered Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+          </table>
+          <div class="table-footer">
+            <a href="pending-registrations.html" class="view-all-link">View All Pending Registrations →</a>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
   <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
 </html>

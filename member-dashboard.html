@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>San Pedro Cathedral - Member Portal</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/member-dashboard.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-left">
+        <img class="topbar-logo" src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo">
+        <div class="top-title">San Pedro Cathedral Parish</div>
+      </div>
+
+      <div class="topbar-right">
+        <!-- Notification Icon -->
+        <div class="notification-icon" id="notificationBtn" tabindex="0" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+          </svg>
+          <span class="notification-badge">2</span>
+        </div>
+
+        <!-- Profile Menu -->
+        <div class="profile" id="profileBtn" tabindex="0" aria-haspopup="true" aria-expanded="false">
+          <div class="profile-avatar">JD</div>
+          <span class="profile-name">Juan Dela Cruz</span>
+          <span class="profile-arrow">▾</span>
+
+          <div class="profile-menu" id="profileMenu" role="menu" hidden>
+            <a href="my-profile.html" class="menu-item">My Profile</a>
+            <a href="my-requests.html" class="menu-item">My Requests</a>
+            <button class="menu-item" id="logoutBtn" role="menuitem">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+      
+      <nav class="main-menu">
+        <ul>
+
+          <!-- Dashboard -->
+          <li>
+            <a class="menu-link active" href="member-dashboard.html">
+              <span class="menu-icon">🏠</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <!-- Request Sacrament -->
+          <li>
+            <a class="menu-link" href="request-sacrament.html">
+              <span class="menu-icon">📝</span>
+              <span>Request Sacrament</span>
+            </a>
+          </li>
+
+          <!-- My Requests -->
+          <li>
+            <a class="menu-link" href="my-requests.html">
+              <span class="menu-icon">📋</span>
+              <span>My Requests</span>
+            </a>
+          </li>
+
+          <!-- Events -->
+          <li>
+            <a class="menu-link" href="events.html">
+              <span class="menu-icon">📅</span>
+              <span>Events & Calendar</span>
+            </a>
+          </li>
+
+          <!-- Announcements -->
+          <li>
+            <a class="menu-link" href="announcements.html">
+              <span class="menu-icon">📢</span>
+              <span>Announcements</span>
+            </a>
+          </li>
+
+          <!-- My Profile -->
+          <li>
+            <a class="menu-link" href="my-profile.html">
+              <span class="menu-icon">👤</span>
+              <span>My Profile</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="help-card">
+          <div class="help-icon">❓</div>
+          <div class="help-title">Need Help?</div>
+          <div class="help-text">Contact the parish office</div>
+          <a href="contact.html" class="help-btn">Contact Us</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" role="main">
+      <!-- Welcome Section -->
+      <section class="welcome-banner">
+        <div class="welcome-content">
+          <h1 class="welcome-title">Welcome back, Juan! 👋</h1>
+          <p class="welcome-subtitle">Here's what's happening in your parish community</p>
+        </div>
+        <div class="welcome-date" id="currentDate">Loading date...</div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions-section">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions-grid">
+          
+          <button class="quick-action-card action-primary" id="requestSacramentBtn">
+            <div class="quick-action-icon">📝</div>
+            <div class="quick-action-title">Request Sacrament</div>
+            <div class="quick-action-desc">Submit a new sacramental service request</div>
+          </button>
+
+          <button class="quick-action-card action-info" id="viewEventsBtn">
+            <div class="quick-action-icon">📅</div>
+            <div class="quick-action-title">View Events</div>
+            <div class="quick-action-desc">Check upcoming parish events</div>
+          </button>
+
+          <button class="quick-action-card action-success" id="myRequestsBtn">
+            <div class="quick-action-icon">📋</div>
+            <div class="quick-action-title">My Requests</div>
+            <div class="quick-action-desc">Track your service requests</div>
+            <span class="action-badge">2</span>
+          </button>
+
+          <button class="quick-action-card action-warning" id="updateProfileBtn">
+            <div class="quick-action-icon">👤</div>
+            <div class="quick-action-title">Update Profile</div>
+            <div class="quick-action-desc">Edit your personal information</div>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- Dashboard Content Grid -->
+      <div class="dashboard-grid">
+        
+        <!-- Left Column -->
+        <div class="dashboard-left">
+          
+          <!-- Upcoming Events -->
+          <section class="section-card">
+            <div class="card-header">
+              <h2 class="card-title">📅 Upcoming Events</h2>
+              <a href="events.html" class="view-all-link">View All →</a>
+            </div>
+            <div class="events-list" id="eventsList">
+              <!-- Events will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Recent Announcements -->
+          <section class="section-card">
+            <div class="card-header">
+              <h2 class="card-title">📢 Latest Announcements</h2>
+              <a href="announcements.html" class="view-all-link">View All →</a>
+            </div>
+            <div class="announcements-list" id="announcementsList">
+              <!-- Announcements will be populated by JavaScript -->
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Right Column -->
+        <div class="dashboard-right">
+          
+          <!-- My Request Status -->
+          <section class="section-card">
+            <div class="card-header">
+              <h2 class="card-title">📋 My Request Status</h2>
+              <a href="my-requests.html" class="view-all-link">View All →</a>
+            </div>
+            <div class="requests-status" id="requestsStatus">
+              <!-- Request status will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Upcoming Birthdays -->
+          <section class="section-card">
+            <div class="card-header">
+              <h2 class="card-title">🎂 Community Birthdays</h2>
+            </div>
+            <div class="birthdays-list" id="birthdaysList">
+              <!-- Birthdays will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Parish Contact -->
+          <section class="section-card contact-card">
+            <div class="contact-icon">📞</div>
+            <h3 class="contact-title">Contact Parish Office</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="contact-label">Phone:</span>
+                <span class="contact-value">+63 123 456 7890</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <span class="contact-value">info@sanpedro.ph</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Hours:</span>
+                <span class="contact-value">Mon-Sat, 8AM-5PM</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- JS -->
+  <script src="js/member-dashboard.js"></script>
+</body>
+</html>
