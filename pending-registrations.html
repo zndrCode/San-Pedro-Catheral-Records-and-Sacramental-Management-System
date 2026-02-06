@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pending Registrations - San Pedro Cathedral Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-title">San Pedro Cathedral Parish Admin Panel</div>
+      <div class="topbar-right">
+        <div class="notification-icon" id="notificationBtn" tabindex="0" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+          </svg>
+          <span class="notification-badge">3</span>
+        </div>
+        <div class="profile" id="profileBtn" tabindex="0" aria-haspopup="true" aria-expanded="false">
+          <span class="profile-name">Admin</span>
+          <div class="profile-menu" id="profileMenu" role="menu" hidden>
+            <button class="menu-item" id="logoutBtn" role="menuitem">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <img class="logo" src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo">
+        <h2 class="site-name">SAN PEDRO CATHEDRAL</h2>
+        <p class="muted">Record &amp; Sacramental System</p>
+      </div>
+
+      <nav class="main-menu">
+        <ul>
+          <li><a class="menu-link" href="dashboard.html"><span>Dashboard</span></a></li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="true">
+              <span>Members Management</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu">
+              <li><a href="members-list.html">Members List</a></li>
+              <li><a href="member-profiles.html">Member Profiles</a></li>
+              <li><a href="pending-registrations.html" class="active">Pending Registrations</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Sacramental Requests</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="pending-requests.html">Pending Requests</a></li>
+              <li><a href="approved-requests.html">Approved Requests</a></li>
+              <li><a href="rejected-requests.html">Rejected Requests</a></li>
+              <li><a href="request-history.html">Request History</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Events &amp; Announcements</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="events-calendar.html">Events Calendar</a></li>
+              <li><a href="announcements-list.html">Announcements List</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Reports</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="generate-report.html">Generate New Report</a></li>
+              <li><a href="report-history.html">Report History</a></li>
+            </ul>
+          </li>
+
+          <li><a class="menu-link" href="activity-log.html"><span>Activity Log</span></a></li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Settings</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="parish-information.html">Parish Information</a></li>
+              <li><a href="user-accounts.html">User Accounts</a></li>
+              <li><a href="system-settings.html">System Settings</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" role="main">
+      
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Pending Registrations</h1>
+          <p class="page-subtitle">Approve or reject new member registrations</p>
+        </div>
+      </div>
+
+      <!-- Alert -->
+      <div class="alert alert-info" id="pendingAlert">
+        <span class="alert-icon">ℹ️</span>
+        <span>You have <strong id="pendingCount">3</strong> pending registrations awaiting approval</span>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="table-controls">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by name or email..." class="search-input">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="filter-group">
+          <select class="filter-select" id="sortFilter">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="name">Sort by Name</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Registrations Table -->
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Registration Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="registrationsTableBody">
+            <!-- Rows will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- View Details Modal -->
+  <div class="modal" id="viewModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Registration Details</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <div id="modalName">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <div id="modalEmail">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <div id="modalPhone">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth</label>
+            <div id="modalDob">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <div id="modalGender">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address</label>
+            <div id="modalAddress">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Registration Date</label>
+            <div id="modalRegDate">-</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="closeModalBtn">Close</button>
+        <button class="btn btn-danger" id="modalRejectBtn">Reject</button>
+        <button class="btn btn-success" id="modalApproveBtn">Approve</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/pending-registrations.js"></script>
+</body>
+</html>

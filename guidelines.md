@@ -16,3 +16,57 @@ The system supports two users: Admin and Members (Parishioners). Admin users can
 
 - HTML, CSS, JavaScript [Frontend]
 - PHP, MyPHPadmin [backend]
+
+2/5/26
+# San Pedro Cathedral - Current File Structure
+```
+SAN-PEDRO-CATHEDRAL-RECORD/
+│
+├── assets/
+│   ├── sanpedro_bg.webp
+│   └── sanpedro_logo.jpg
+│
+├── css/
+│   ├── dashboard.css
+│   ├── member-dashboard.css
+│   ├── pages.css ✅ NEW
+│   ├── signup.css
+│   └── style.css
+│
+├── js/
+│   ├── tests/
+│   ├── dashboard.js
+│   ├── member-dashboard.js
+│   ├── members-list.js ✅ NEW
+│   ├── main.js
+│   └── signup.js
+│
+├── reference/
+│   ├── DASHBOARD.png
+│   ├── LOGIN.png
+│   └── SIGNUP.png
+│
+├── .gitattributes
+├── dashboard.html
+├── member-dashboard.html ✅ NEW
+├── members-list.html ✅ NEW
+├── pending-requests.html ✅ NEW
+├── guidelines.md
+├── index.html
+├── README.md
+└── signup.html
+```
+
+**Total Files: 21**
+- ✅ 5 HTML pages
+- ✅ 5 CSS files  
+- ✅ 5 JS files
+- ✅ 2 Assets
+- ✅ 4 Other files
+
+---
+
+**Still Need:**
+- 11 more HTML pages (other admin navigation pages)
+- PHP backend files
+- Database structure
