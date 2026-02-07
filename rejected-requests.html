@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rejected Requests - San Pedro Cathedral Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-title">San Pedro Cathedral Parish Admin Panel</div>
+      <div class="topbar-right">
+        <div class="notification-icon" id="notificationBtn" tabindex="0" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+          </svg>
+          <span class="notification-badge">3</span>
+        </div>
+        <div class="profile" id="profileBtn" tabindex="0" aria-haspopup="true" aria-expanded="false">
+          <span class="profile-name">Admin</span>
+          <div class="profile-menu" id="profileMenu" role="menu" hidden>
+            <button class="menu-item" id="logoutBtn" role="menuitem">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <img class="logo" src="assets/sanpedro_logo.jpg" alt="San Pedro Cathedral logo">
+        <h2 class="site-name">SAN PEDRO CATHEDRAL</h2>
+        <p class="muted">Record &amp; Sacramental System</p>
+      </div>
+
+      <nav class="main-menu">
+        <ul>
+          <li><a class="menu-link" href="dashboard.html"><span>Dashboard</span></a></li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Members Management</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="members-list.html">Members List</a></li>
+              <li><a href="member-profiles.html">Member Profiles</a></li>
+              <li><a href="pending-registrations.html">Pending Registrations</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="true">
+              <span>Sacramental Requests</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu">
+              <li><a href="pending-requests.html">Pending Requests</a></li>
+              <li><a href="approved-requests.html">Approved Requests</a></li>
+              <li><a href="rejected-requests.html" class="active">Rejected Requests</a></li>
+              <li><a href="request-history.html">Request History</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Events &amp; Announcements</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="events-calendar.html">Events Calendar</a></li>
+              <li><a href="announcements-list.html">Announcements List</a></li>
+            </ul>
+          </li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Reports</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="generate-report.html">Generate New Report</a></li>
+              <li><a href="report-history.html">Report History</a></li>
+            </ul>
+          </li>
+
+          <li><a class="menu-link" href="activity-log.html"><span>Activity Log</span></a></li>
+
+          <li class="has-children">
+            <button class="menu-toggle" aria-expanded="false">
+              <span>Settings</span><span class="chev">▾</span>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="parish-information.html">Parish Information</a></li>
+              <li><a href="user-accounts.html">User Accounts</a></li>
+              <li><a href="system-settings.html">System Settings</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" role="main">
+      
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Rejected Requests</h1>
+          <p class="page-subtitle">View all rejected sacramental requests</p>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-orange">✗</div>
+          <div class="stat-content">
+            <div class="stat-value" id="totalRejected">0</div>
+            <div class="stat-label">Total Rejected</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-blue">📝</div>
+          <div class="stat-content">
+            <div class="stat-value" id="baptismCount">0</div>
+            <div class="stat-label">Baptism</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-purple">💒</div>
+          <div class="stat-content">
+            <div class="stat-value" id="weddingCount">0</div>
+            <div class="stat-label">Wedding</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-green">✝</div>
+          <div class="stat-content">
+            <div class="stat-value" id="confirmationCount">0</div>
+            <div class="stat-label">Confirmation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="table-controls">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by name or request ID..." class="search-input">
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="filter-group">
+          <select class="filter-select" id="typeFilter">
+            <option value="">All Types</option>
+            <option value="baptism">Baptism</option>
+            <option value="wedding">Wedding</option>
+            <option value="confirmation">Confirmation</option>
+            <option value="funeral">Funeral</option>
+          </select>
+
+          <select class="filter-select" id="sortFilter">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="name">Sort by Name</option>
+          </select>
+
+          <button class="btn btn-secondary" id="exportBtn">
+            <span class="btn-icon">📥</span>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <!-- Requests Table -->
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Member Name</th>
+              <th>Request Type</th>
+              <th>Submitted Date</th>
+              <th>Rejected Date</th>
+              <th>Reason</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="requestsTableBody">
+            <!-- Table rows will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="pagination-btn" id="prevBtn" disabled>Previous</button>
+        <div class="pagination-info">
+          <span>Showing <strong>1-10</strong> of <strong id="totalCount">0</strong> requests</span>
+        </div>
+        <button class="pagination-btn" id="nextBtn" disabled>Next</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- View Details Modal -->
+  <div class="modal" id="viewModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Request Details</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Request ID</label>
+            <div id="modalRequestId">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Member Name</label>
+            <div id="modalMemberName">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Request Type</label>
+            <div id="modalRequestType">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Submitted Date</label>
+            <div id="modalSubmittedDate">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rejected Date</label>
+            <div id="modalRejectedDate">-</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rejected By</label>
+            <div id="modalRejectedBy">-</div>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Rejection Reason</label>
+            <div id="modalReason">-</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="closeModalBtn">Close</button>
+        <button class="btn btn-danger" id="deleteBtn">Delete Record</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/rejected-requests.js"></script>
+</body>
+</html>
